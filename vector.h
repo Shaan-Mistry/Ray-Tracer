@@ -43,8 +43,5 @@ public:
     friend vec3 operator*(const vec3 &v, double a);
     friend vec3 operator/(const vec3 &v, double a);
 };
-
-
-
 using color = vec3;
 #endif
