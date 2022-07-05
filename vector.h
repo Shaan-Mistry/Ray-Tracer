@@ -1,8 +1,9 @@
 //-----------------------------------------------------------------------------
 // Shaan Mistry
-// vec3.h
-// Header file for the vec3 ADT
+// vector.h
+// Interface for the vec3 class.
 //-----------------------------------------------------------------------------
+
 #include <string>
 
 #ifndef VECTOR_H_INCLUDE_
@@ -35,13 +36,15 @@ public:
     double& operator[](int i);
 
     friend std::ostream& operator<<(std::ostream &stream, const vec3 &v);
+    friend vec3 operator+(const vec3 &u, const vec3 &v);
+    friend vec3 operator-(const vec3 &u, const vec3 &v);
+    friend vec3 operator*(const vec3 &u, const vec3 &v);
+    friend vec3 operator*(double a, const vec3 &v);
+    friend vec3 operator*(const vec3 &v, double a);
+    friend vec3 operator/(const vec3 &v, double a);
 };
-    inline vec3 operator+(const vec3 &u, const vec3 &v);
-    inline vec3 operator-(const vec3 &u, const vec3 &v);
-    inline vec3 operator*(const vec3 &u, const vec3 &v);
-    inline vec3 operator*(double a, const vec3 &v);
-    inline vec3 operator*(const vec3 &u, double a);
-    inline vec3 operator/(const vec3 &u, double a);
+
+
 
 using color = vec3;
 #endif

@@ -1,8 +1,9 @@
 //-----------------------------------------------------------------------------
 // Shaan Mistry
-// vec3.cpp
-// Implementtaion of a 3D Vector.
+// vector.cpp
+// Implementaion of the vec3 class. This class represents a 3D Vector.
 //-----------------------------------------------------------------------------
+
 #include "vector.h"
 #include <cmath>
 #include <iostream>
@@ -27,27 +28,27 @@ vec3::~vec3(){
 
 // Access functions --------------------------------------------------------
 
-// Return x component of the current vector.
+// Return x component of the current vec3.
 double vec3::x() const {
     return e[0];
 }
-// Return y component of the current vector.
+// Return y component of the current vec3.
 double vec3::y() const {
     return e[1];
 }
-// Return z component of the current vector.
+// Return z component of the current vec3.
 double vec3::z() const {
     return e[2];
 }
 
-// Return the dot product of the current vector.
+// Return the dot product of the current vec3.
 double vec3::dot_product(const vec3 &v) const {
     return x() * v.x()
          + y() * v.y()
          + z() * v.z();
 }
 
-// Return the magnitude of the current vector.
+// Return the magnitude of the current vec3.
 double vec3::magnitude() const {
     return std::sqrt(dot_product(*this));
 }
@@ -90,10 +91,28 @@ double& vec3::operator[](int i) {
 }
 
 std::ostream& operator<<(std::ostream &stream, const vec3 &v) {
-    return stream << "<"<< v.x() << ", " << v.y() << ", " << v.z() << ">";
+    return stream << v.x() << " " << v.y() << " " << v.z();
 }
 
 
-
+// Arithmetic Operations ---------------------------------------------------
+vec3 operator+(const vec3 &u, const vec3 &v) {
+   return vec3(u.x() + v.x(), u.y() + v.y(), u.z() + v.y());
+}
+vec3 operator-(const vec3 &u, const vec3 &v) {
+    return vec3(u.x() - v.x(), u.y() - v.y(), u.z() - v.y());
+}
+vec3 operator*(const vec3 &u, const vec3 &v) {
+    return vec3(u.x() * v.x(), u.y() * v.y(), u.z() * v.y());
+}
+vec3 operator*(double a, const vec3 &v) {
+    return vec3(a * v.x(), a * v.y(), a * v.z());
+}
+vec3 operator*(const vec3 &v, double a) {
+    return a * v;
+}
+vec3 operator/(const vec3 &v, double a) {
+    return (1 / a) * v;
+}
 
 
