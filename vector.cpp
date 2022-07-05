@@ -21,18 +21,27 @@ vec3::vec3(double x, double y, double z) {
     e[2] = z;
 }
 
-vec3::~vec3() {
-    return;
-}
-
 // Access functions --------------------------------------------------------
 
-// Return the dot product of the current vec3.
-double vec3::dot_product(const vec3 &V) const {
-    return e[0] * V.e[0] + e[1] * V.e[1] + e[2] * V.e[2];
+// Return x component of the current vector.
+double vec3::x() const {
+    return e[0];
+}
+// Return y component of the current vector.
+double vec3::y() const {
+    return e[1];
+}
+// Return z component of the current vector.
+double vec3::z() const {
+    return e[2];
 }
 
-// Return the magnitude of the current vec3.
+// Return the dot product of the current vector.
+double vec3::dot_product(const vec3 &v) const {
+    return x() * v.x() + y() * v.y() + z() * v.z();
+}
+
+// Return the magnitude of the current vector.
 double vec3::magnitude() const {
     return std::sqrt(dot_product(*this));
 }
@@ -40,14 +49,14 @@ double vec3::magnitude() const {
 
 // Overriden Operators -----------------------------------------------------
 
-bool vec3::operator==(const vec3 &V) {
-    return e[0] == V.e[0] && e[1] == V.e[1] && e[0] == V.e[0];
+bool vec3::operator==(const vec3 &v) {
+    return x() == v.x() && y() == v.y() && x() == v.y();
 }
 
-vec3& vec3::operator+=(const vec3 &V) {
-    e[0] += V.e[0];
-    e[1] += V.e[1];
-    e[2] += V.e[2];
+vec3& vec3::operator+=(const vec3 &v) {
+    e[0] += v.x();
+    e[1] += v.y();
+    e[2] += v.z();
     return *this;
 }
 
@@ -72,16 +81,12 @@ double vec3::operator[](int i) const {
 double& vec3::operator[](int i) {
     return e[i];
 }
-std::ostream& operator<<(std::ostream &stream, const vec3 &V) {
-    std::string s = "{";
-    s.append(std::to_string(V.e[0]));
-    s.append(", ");
-    s.append(std::to_string(V.e[1]));
-    s.append(", ");
-    s.append(std::to_string(V.e[2]));
-    s.append("}");
-    return stream << s;
+std::ostream& operator<<(std::ostream &stream, const vec3 &v) {
+    return stream << v.x() << ',' << v.y() << ',' << v.z();
+
 }
+
+
 
 
 
