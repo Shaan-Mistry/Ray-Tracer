@@ -33,8 +33,9 @@ public:
     vec3& operator/=(const double a);
     double operator[](int i) const;
     double& operator[](int i);
+
+    friend std::ostream& operator<<(std::ostream &stream, const vec3 &v);
 };
-    inline std::ostream& operator<<(std::ostream &stream, const vec3 &v);
     inline vec3 operator+(const vec3 &u, const vec3 &v);
     inline vec3 operator-(const vec3 &u, const vec3 &v);
     inline vec3 operator*(const vec3 &u, const vec3 &v);

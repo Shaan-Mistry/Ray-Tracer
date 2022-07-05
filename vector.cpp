@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------------
 #include "vector.h"
 #include <cmath>
+#include <iostream>
 
 // Exported type  -------------------------------------------------------------
 
@@ -19,6 +20,9 @@ vec3::vec3(double x, double y, double z) {
     e[0] = x;
     e[1] = y;
     e[2] = z;
+}
+vec3::~vec3(){
+    return;
 }
 
 // Access functions --------------------------------------------------------
@@ -38,7 +42,9 @@ double vec3::z() const {
 
 // Return the dot product of the current vector.
 double vec3::dot_product(const vec3 &v) const {
-    return x() * v.x() + y() * v.y() + z() * v.z();
+    return x() * v.x()
+         + y() * v.y()
+         + z() * v.z();
 }
 
 // Return the magnitude of the current vector.
@@ -46,11 +52,12 @@ double vec3::magnitude() const {
     return std::sqrt(dot_product(*this));
 }
 
-
 // Overriden Operators -----------------------------------------------------
 
 bool vec3::operator==(const vec3 &v) {
-    return x() == v.x() && y() == v.y() && x() == v.y();
+    return x() == v.x()
+        && y() == v.y()
+        && x() == v.y();
 }
 
 vec3& vec3::operator+=(const vec3 &v) {
@@ -81,9 +88,9 @@ double vec3::operator[](int i) const {
 double& vec3::operator[](int i) {
     return e[i];
 }
-std::ostream& operator<<(std::ostream &stream, const vec3 &v) {
-    return stream << v.x() << ',' << v.y() << ',' << v.z();
 
+std::ostream& operator<<(std::ostream &stream, const vec3 &v) {
+    return stream << "<"<< v.x() << ", " << v.y() << ", " << v.z() << ">";
 }
 
 
