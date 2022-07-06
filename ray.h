@@ -9,7 +9,6 @@
 #ifndef RAY_H_INCLUDE_
 #define RAY_H_INCLUDE_
 
-
 class ray {
 
 private:
@@ -23,6 +22,7 @@ public:
 
     // Access functions --------------------------------------------------------
     point location(double t) const;
+    color ray_color() const;
 };
 
 #endif
