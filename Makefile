@@ -1,12 +1,15 @@
-EXECBIN  = VectorTest
+EXECBIN  = raytracer
 
 SOURCES  = $(wildcard *.cpp)
 OBJECTS  = $(SOURCES:%.cpp=%.o)
 
+
 CC       = g++ -std=c++17
 CFLAGS   = -Wall -Wpedantic -Werror -Wextra
+CLEAN    = rm -f
+FORMAT   = clang-format
 
-.PHONY: all clean
+.PHONY: all clean format
 
 all: $(EXECBIN)
 
@@ -17,4 +20,7 @@ $(EXECBIN): $(OBJECTS)
 	$(CC) $(CFLAGS) -c $<
 
 clean:
-	rm -f $(EXECBIN) $(OBJECTS)
+	$(CLEAN) $(EXECBIN) $(OBJECTS)
+
+format:
+	$(FORMAT) $(SOURCES)
