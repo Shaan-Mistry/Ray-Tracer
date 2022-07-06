@@ -4,7 +4,7 @@
 // Interface for the ray class.
 //-----------------------------------------------------------------------------
 
-#include <vector.h>
+#include "vector.h"
 
 #ifndef RAY_H_INCLUDE_
 #define RAY_H_INCLUDE_
@@ -22,7 +22,7 @@ public:
     ray(const point &origin, const vector &direction);
 
     // Access functions --------------------------------------------------------
-    at(double t) const;
+    point location(double t) const;
 };
 
 #endif
