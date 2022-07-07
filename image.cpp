@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 // Shaan Mistry
 // image.cpp
-//
+// Image class for rendering images.
 //-----------------------------------------------------------------------------
 
 #include "color.h"
@@ -9,7 +9,6 @@
 #include "vector.h"
 
 #include <iostream>
-
 
 // Class Constructors & Destructors ----------------------------------------
 image::image(const int width, const int height) {
