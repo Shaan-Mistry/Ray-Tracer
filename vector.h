@@ -4,10 +4,10 @@
 // Interface for the vector class.
 //-----------------------------------------------------------------------------
 
-#include <string>
-
 #ifndef VECTOR_H_INCLUDE_
 #define VECTOR_H_INCLUDE_
+
+#include <ostream>
 
 class vector {
 
