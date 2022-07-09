@@ -8,8 +8,6 @@
 #include <cmath>
 #include <iostream>
 
-// Exported type  -------------------------------------------------------------
-
 // Class Constructors & Destructors ----------------------------------------
 vector::vector() {
     e[0] = 0;
@@ -53,6 +51,11 @@ double vector::magnitude() const {
     return std::sqrt(dot_product(*this));
 }
 
+vector vector::normalized() const {
+    double mag = magnitude();
+    return vector(x() / mag, y() / mag, z() / mag);
+}
+
 // Overriden Operators -----------------------------------------------------
 
 bool vector::operator==(const vector &v) {
@@ -94,16 +97,15 @@ std::ostream& operator<<(std::ostream &stream, const vector &v) {
     return stream << v.x() << " " << v.y() << " " << v.z();
 }
 
-
 // Arithmetic Operations ---------------------------------------------------
 vector operator+(const vector &u, const vector &v) {
-   return vector(u.x() + v.x(), u.y() + v.y(), u.z() + v.y());
+   return vector(u.x() + v.x(), u.y() + v.y(), u.z() + v.z());
 }
 vector operator-(const vector &u, const vector &v) {
-    return vector(u.x() - v.x(), u.y() - v.y(), u.z() - v.y());
+    return vector(u.x() - v.x(), u.y() - v.y(), u.z() - v.z());
 }
 vector operator*(const vector &u, const vector &v) {
-    return vector(u.x() * v.x(), u.y() * v.y(), u.z() * v.y());
+    return vector(u.x() * v.x(), u.y() * v.y(), u.z() * v.z());
 }
 vector operator*(double a, const vector &v) {
     return vector(a * v.x(), a * v.y(), a * v.z());
