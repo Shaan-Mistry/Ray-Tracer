@@ -9,6 +9,8 @@
 #ifndef IMAGE_H_INCLUDE_
 #define IMAGE_H_INCLUDE_
 
+#include "vector.h"
+
 // Exported type  -------------------------------------------------------------
 class image {
     private:
