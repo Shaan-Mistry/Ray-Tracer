@@ -5,7 +5,7 @@
 //-----------------------------------------------------------------------------
 
 //  Ray-Sphere Intersection Formulas
-//  a = 1
+//  a = ray_direction * ray_direction
 //  b = 2 * ray_direction * sphere_to_ray
 //  c = sphere_to_ray * sphere_to_ray - radius^2
 //  discriminant = b^2 - 4ac
@@ -40,7 +40,6 @@ public:
     // If there is an intersection, it retunrs the distance point from the
     // origin ray. If there is no intersection, function returns -1.
     double intersects(ray r) {
-        //std::cerr << "center" << center <<  ", rad: " << radius << "\n";
         vector sphere_to_ray = r.origin() - center;
         auto a = r.direction().dot_product(r.direction());
         auto b = 2.0 * r.direction().dot_product(sphere_to_ray);
@@ -50,7 +49,7 @@ public:
         if (discriminant < 0) {
             return -1.0;
         } else {
-            return (-b - sqrt(discriminant)) * 2 * a;
+            return (-b - sqrt(discriminant)) * 2.0 * a;
         }
     }
 };
