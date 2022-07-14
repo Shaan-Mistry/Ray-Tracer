@@ -7,7 +7,7 @@ OBJECTS  = $(SOURCES:%.cpp=%.o)
 CC       = g++ -std=c++17
 CFLAGS   = -Wall -Wpedantic -Werror -Wextra
 CLEAN    = rm -f
-FORMAT   = clang-format
+FORMAT   = clang-format -i
 
 .PHONY: all clean format
 
