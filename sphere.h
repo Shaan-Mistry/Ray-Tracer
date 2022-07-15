@@ -28,28 +28,30 @@ class sphere {
 private:
     point center;
     double radius;
-    std::string material;
+
 
 public:
+std::string material;
     sphere(point center, double radius, std::string material) {
         this->center = center;
         this->radius = radius;
         this->material = material;
     }
     // Checks if the inputted ray intersects the sphere.
-    // If there is an intersection, it retunrs the distance point from the
+    // If there is an intersection, it returns the distance point from the
     // origin ray. If there is no intersection, function returns -1.
     double intersects(ray r) {
         vector sphere_to_ray = r.origin() - center;
+
         auto a = r.direction().dot_product(r.direction());
-        auto b = 2.0 * r.direction().dot_product(sphere_to_ray);
+        auto b = 2 * r.direction().dot_product(sphere_to_ray);
         auto c = sphere_to_ray.dot_product(sphere_to_ray) - radius * radius;
         auto discriminant = b * b - 4 * a * c;
 
         if (discriminant < 0) {
             return -1.0;
         } else {
-            return (-b - sqrt(discriminant)) * 2.0 * a;
+            return (-b - sqrt(discriminant)) / (2 * a);
         }
     }
 };
